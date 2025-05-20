@@ -1,41 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react'
 
-const LoginModal = ({ isOpen, onClose, onGoogleLogin }) => {
-  if (!isOpen) return null;
+const LoginModal = ({ onClose, onSubmit }) => {
+  const [email, setEmail] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    onSubmit({ email })
+  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-lg w-11/12 max-w-md p-6 relative">
+      <div className="bg-white rounded-lg w-80 p-6 relative">
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
         >
           ✕
         </button>
-        <h2 className="text-2xl font-bold mb-4">Iniciar sesión</h2>
-        <p className="mb-6 text-gray-600">
-          Ingresa con tu cuenta para consultar y dejar reseñas.
-        </p>
-        <button
-          onClick={onGoogleLogin}
-          className="w-full flex items-center justify-center border border-gray-300 rounded-md py-2 mb-4 hover:bg-gray-100"
-        >
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            alt="Google logo"
-            className="w-6 h-6 mr-2"
+        <h2 className="text-xl font-semibold mb-4">Ingresar a tu cuenta</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full border rounded px-3 py-2 focus:outline-blue-500"
           />
-          Continuar con Google
-        </button>
-        <button
-          onClick={onClose}
-          className="w-full text-center text-blue-600 hover:underline"
-        >
-          Cancelar
-        </button>
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          >
+            Continuar
+          </button>
+        </form>
+        <div className="mt-4 text-center text-gray-500">ó ingresá con</div>
+        <div className="flex justify-center mt-3 space-x-4">
+          <button onClick={() => onSubmit({ provider: 'google' })}>
+            <img src="/icons/google.svg" alt="Google" className="w-6 h-6" />
+          </button>
+          <button onClick={() => onSubmit({ provider: 'facebook' })}>
+            <img src="/icons/facebook.svg" alt="Facebook" className="w-6 h-6" />
+          </button>
+          <button onClick={() => onSubmit({ provider: 'apple' })}>
+            <img src="/icons/apple.svg" alt="Apple" className="w-6 h-6" />
+          </button>
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginModal;
+export default LoginModal
