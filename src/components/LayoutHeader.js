@@ -1,63 +1,58 @@
 import React, { useState } from 'react';
-
-+ import LoginModal from './LoginModal';
+import LoginModal from './LoginModal'; // asegúrate de tener este componente
 
 const LayoutHeader = ({ currentPage, setCurrentPage, isLoggedIn, onLogin, onLogout }) => {
-+ const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
+  const handleLoginClick = () => {
+    setShowLogin(true);
+  };
+  const handleCloseModal = () => {
+    setShowLogin(false);
+  };
 
   return (
-    <>
-      <header className="bg-white shadow-md">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div
-            className="text-2xl font-bold text-blue-600 cursor-pointer"
-            onClick={() => setCurrentPage('home')}
+    <header className="bg-white shadow-md">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        {/* Logo */}
+        <h1 
+          className="text-2xl font-bold text-blue-600 cursor-pointer"
+          onClick={() => setCurrentPage('home')}
+        >
+          AlquiRate
+        </h1>
+
+        {/* Navegación */}
+        <nav className="space-x-6">
+          <button onClick={() => setCurrentPage('home')} className="hover:underline">
+            Inicio
+          </button>
+          <button onClick={() => setCurrentPage('rankings')} className="hover:underline">
+            Rankings
+          </button>
+          <button onClick={() => setCurrentPage('addReview')} className="hover:underline">
+            Calificar
+          </button>
+        </nav>
+
+        {/* Botón de login / logout */}
+        {isLoggedIn ? (
+          <button onClick={onLogout} className="bg-red-500 text-white px-4 py-1 rounded">
+            Cerrar sesión
+          </button>
+        ) : (
+          <button
+            onClick={handleLoginClick}
+            className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700"
           >
-            AlquiRate
-          </div>
+            Iniciar sesión
+          </button>
+        )}
+      </div>
 
-          <nav className="flex space-x-6">
-            {/* … tus botones de navegación … */}
-          </nav>
-
-          <div>
--           {isLoggedIn ? (
--             <button onClick={onLogout} className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
--               Cerrar sesión
--             </button>
--           ) : (
--             <button onClick={onLogin} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
--               Iniciar sesión
--             </button>
--           )}
-+           {isLoggedIn ? (
-+             <button
-+               onClick={onLogout}
-+               className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-+             >
-+               Cerrar sesión
-+             </button>
-+           ) : (
-+             <button
-+               onClick={() => setShowLogin(true)}
-+               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-+             >
-+               Iniciar sesión
-+             </button>
-+           )}
-          </div>
-        </div>
-      </header>
-
-+     <LoginModal
-+       isOpen={showLogin}
-+       onClose={() => setShowLogin(false)}
-+       onGoogleLogin={() => {
-+         setShowLogin(false);
-+         onLogin(); // aquí disparas tu flujo de Google
-+       }}
-+     />
-    </>
+      {/* Renderiza el modal sólo si showLogin === true */}
+      {showLogin && <LoginModal onClose={handleCloseModal} />}
+    </header>
   );
 };
 
