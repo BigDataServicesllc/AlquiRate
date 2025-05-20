@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState } from 'react';
 import LayoutHeader from './components/LayoutHeader';
 import LayoutFooter from './components/LayoutFooter';
@@ -9,20 +10,16 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':     return <HomePage setCurrentPage={setCurrentPage} />;
-      case 'rankings': return <RankingsPage />;
-      case 'addReview':return <AddReviewPage onAddReview={data => console.log(data)} />;
-      default:         return <HomePage setCurrentPage={setCurrentPage} />;
-    }
-  };
-
   const handleLogin = () => {
-    // aquí dispararías tu modal de login o redirección a Google
+    // aquí integras tu lógica real de Firebase/Google
     setIsLoggedIn(true);
   };
-  const handleLogout = () => setIsLoggedIn(false);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
+  // … resto de renderPage …
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
