@@ -1,7 +1,0 @@
-[build]
-  command   = "npm run build"
-  publish   = "build"
-
-[build.environment]
-  # Ajusta esta versión a la que uses localmente (p. ej. 18, 16, etc.)
-  NODE_VERSION = "18"
