@@ -14,10 +14,10 @@ const HomePage = ({ setCurrentPage }) => {
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Alquila con confianza, decide informado
+              Tu aliado al alquilar.
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              La plataforma más sencilla para alquileres en Argentina. {/* Texto corregido a Argentina */}
+              Calificá propiedades, consultá precios y decidí con datos reales. {/* Texto corregido a Argentina */}
             </p>
             <div className="flex flex-col md:flex-row justify-center gap-4">
               <button 
