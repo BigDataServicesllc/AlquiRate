@@ -3,24 +3,20 @@ import React from 'react';
 const HomePage = ({ setCurrentPage }) => {
   return (
     <div className="pt-16">
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 px-4">
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Tu aliado al alquilar.
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-              Calificá propiedades, consultá precios y decidí con datos reales.
-            </p>
-            <div className="flex justify-center">
-              <button 
-                onClick={() => setCurrentPage('addReview')}
-                className="bg-white text-blue-700 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transition-colors shadow-lg"
-              >
-                Calificar una propiedad
-              </button>
-            </div>
-          </div>
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white min-h-[80vh] flex items-center justify-center px-4">
+        <div className="text-center max-w-3xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Tu aliado al alquilar.
+          </h1>
+          <p className="text-xl md:text-2xl mb-8">
+            Calificá propiedades, consultá precios y decidí con datos reales.
+          </p>
+          <button 
+            onClick={() => setCurrentPage('addReview')}
+            className="bg-white text-blue-700 hover:bg-gray-100 px-8 py-3 rounded-lg text-lg font-semibold transition-colors shadow-lg"
+          >
+            Calificar una propiedad
+          </button>
         </div>
       </section>
 
