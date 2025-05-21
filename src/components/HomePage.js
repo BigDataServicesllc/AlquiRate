@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 const HomePage = ({ setCurrentPage }) => {
   return (
     <div className="pt-16">
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white min-h-[80vh] flex items-center justify-center px-4">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 px-4">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-center max-w-3xl"
+          className="text-center max-w-3xl mx-auto"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Tu aliado al alquilar.
@@ -29,7 +29,6 @@ const HomePage = ({ setCurrentPage }) => {
       <section className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl font-bold text-center mb-12">¿Cómo funciona AlquiRate?</h2>
-          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[...Array(3)].map((_, index) => (
               <motion.div
