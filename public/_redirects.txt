@@ -1,1 +1,1 @@
-https://alquirate.com/* https://www.alquirate.com/:splat 301!
+/Users/michaelortiz/Documents/Alquirate/Deploy/public/_redirects
