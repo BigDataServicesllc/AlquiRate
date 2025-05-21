@@ -76,6 +76,59 @@ const HomePage = ({ setCurrentPage }) => {
         </div>
       </section>
 
+      <section className="py-16 px-4 bg-white">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-3xl font-bold text-center mb-12">Lo que dicen nuestros usuarios</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 p-6 rounded-xl shadow-md"
+            >
+              <div className="flex items-center mb-4">
+                <img 
+                  src="https://i.pravatar.cc/100?img=12" 
+                  alt="Usuario 1" 
+                  className="w-12 h-12 rounded-full mr-4"
+                />
+                <div>
+                  <h4 className="font-semibold">Laura Fernández</h4>
+                  <p className="text-gray-500 text-sm">Buenos Aires</p>
+                </div>
+              </div>
+              <p className="text-gray-700 italic">
+                "Gracias a AlquiRate evité alquilar una propiedad con problemas de humedad y logré conseguir un sitio mejor."
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-gray-50 p-6 rounded-xl shadow-md"
+            >
+              <div className="flex items-center mb-4">
+                <img 
+                  src="https://i.pravatar.cc/100?img=32" 
+                  alt="Usuario 2" 
+                  className="w-12 h-12 rounded-full mr-4"
+                />
+                <div>
+                  <h4 className="font-semibold">Martín Rodríguez</h4>
+                  <p className="text-gray-500 text-sm">Córdoba</p>
+                </div>
+              </div>
+              <p className="text-gray-700 italic">
+                "Como estudiante con poco presupuesto, agradezco los comentarios de otros usuarios. Logré conseguir una propiedad que se ajusta a mis necesidades."
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       <motion.section
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
